@@ -21,5 +21,31 @@ namespace converterDC
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            converter AP3211 = new converter();
+            AP3211.enterValues(Convert.ToDouble(textIout.Text), Convert.ToDouble(textUout.Text), Convert.ToDouble(textUin.Text));
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
