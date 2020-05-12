@@ -36,7 +36,7 @@
             this.textUout = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textIout = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboESeries = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelUin = new System.Windows.Forms.Label();
@@ -107,17 +107,18 @@
             this.textIout.Size = new System.Drawing.Size(100, 20);
             this.textIout.TabIndex = 6;
             // 
-            // comboBox1
+            // comboESeries
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboESeries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboESeries.FormattingEnabled = true;
+            this.comboESeries.Items.AddRange(new object[] {
             "E12",
             "E24"});
-            this.comboBox1.Location = new System.Drawing.Point(118, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(45, 21);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboESeries.Location = new System.Drawing.Point(118, 89);
+            this.comboESeries.Name = "comboESeries";
+            this.comboESeries.Size = new System.Drawing.Size(45, 21);
+            this.comboESeries.TabIndex = 7;
+            this.comboESeries.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -188,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 495);
+            this.ClientSize = new System.Drawing.Size(826, 352);
             this.Controls.Add(this.labelOut);
             this.Controls.Add(this.labelR2);
             this.Controls.Add(this.labelR1);
@@ -196,7 +197,7 @@
             this.Controls.Add(this.labelUin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboESeries);
             this.Controls.Add(this.textIout);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textUout);
@@ -222,7 +223,6 @@
         private System.Windows.Forms.TextBox textUout;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textIout;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUin;
@@ -230,6 +230,7 @@
         private System.Windows.Forms.Label labelR1;
         private System.Windows.Forms.Label labelR2;
         private System.Windows.Forms.Label labelOut;
+        private System.Windows.Forms.ComboBox comboESeries;
     }
 }
 

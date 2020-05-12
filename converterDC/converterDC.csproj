@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="converter.cs" />
+    <Compile Include="ESeries.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
