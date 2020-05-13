@@ -55,7 +55,7 @@ namespace converterDC
             rDivider(0.81, outputVoltage, this.ESeries);
         }
         
-        private (double, double, double) rDivider(double Uref, double Vout, int ESeries)
+        private List<Tuple<double, double, double>> rDivider(double Uref, double Vout, int ESeries)
         {
             List<double> E12 = new List<double> { 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 };
             List<double> E24 = new List<double> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
@@ -99,21 +99,27 @@ namespace converterDC
             firstOption = dbOfEpsilons[0];
             foreach (Tuple <double, double, double> index in dbOfEpsilons)
             {
-                if (previous.Item1 != index.Item1) counter++; //todo naprawićto ścierwo essa
-                switch (counter)
+                if (previous.Item1 != index.Item1)
                 {
-                    case 1:
-
-                    break;
-                    case 2:
-                    break;
-                    case 3:
-                    break;
+                    counter++; //todo naprawićto ścierwo essa
+                    switch (counter)
+                    {
+                        case 1:
+                            firstOption = index;
+                        break;
+                        case 2:
+                            secondOption = index;
+                        break;
+                        case 3:
+                            thirdOption = index;
+                        break;
+                    }
                 }
+                
                 if (counter >= 3) break;
                 previous = index;
             }
-            return (0, 0, 0);
+            return { }; ///dokonczyćreturna
         }
 
     }
