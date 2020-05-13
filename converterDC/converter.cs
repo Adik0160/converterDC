@@ -58,21 +58,36 @@ namespace converterDC
         {
             List<double> E12 = new List<double> { 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 };
             List<double> E24 = new List<double> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
+            List<double> epsilonList = new List<double> { };
             double factor;
+            int minIndexFromEpsilonList;
             factor = Vout / Uref;
             for (int i = 0; i < 3; i++)
             {
                 foreach (double valR1 in E12) //R1 //todo: dodać zamianię szeregów wartości
                 {
-                    double tempR1 = valR1;
+                    double tempR1;
+                    tempR1 = valR1;
                     if (i == 0) tempR1 /= 10;
                     if (i == 2) tempR1 *= 10;
                     for (int j = 0; j < 3; j++)
                     {
                         foreach (double valR2 in E12)
+                        {
+                            double tempR2;
+                            double epsilon;
+                            tempR2 = valR2;
+                            if (j == 0) tempR2 /= 10;
+                            if (j == 2) tempR2 *= 10;
+                            epsilon = factor - (tempR1 + tempR2)/tempR2;
+                            epsilonList.Add(Math.Abs(epsilon));
+                        }
                     }
                 }
             }
+            minIndexFromEpsilonList = epsilonList.IndexOf(epsilonList.Min());
+            MessageBox.Show(Convert.ToString(epsilonList[minIndexFromEpsilonList]));
+            MessageBox.Show(Convert.ToString(minIndexFromEpsilonList));
 
             return (0, 0, 0);
         }
