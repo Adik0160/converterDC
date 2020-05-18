@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace converterDC
 {
+
     enum series
     {
         E12 = 0,
@@ -22,6 +24,7 @@ namespace converterDC
         double maxOutputCurrent, outputCurrent;
         double L1, R1, R2, C1, C2;
         int ESeries;
+        List<Tuple<double, double, double>> dbOfEpsilons = new List<Tuple<double, double, double>> { };
         public converter() //domyślnie ap3211
         {
             this.frequency = 1400000; //Hz
@@ -52,20 +55,25 @@ namespace converterDC
             this.outputVoltage = outputVoltage;
             this.inputVoltage = inputVoltage;
             this.ESeries = ESeries;
-            rDivider(0.81, outputVoltage, this.ESeries);
+            dbOfEpsilons = rDivider(0.81, outputVoltage, this.ESeries);
         }
         
         private List<Tuple<double, double, double>> rDivider(double Uref, double Vout, int ESeries)
         {
             List<double> E12 = new List<double> { 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 };
             List<double> E24 = new List<double> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
+            List<double> ser = new List<double> { };
+
             var dbOfEpsilons = new List<Tuple<double, double, double>> { };
             double factor;
-            int minIndexFromEpsilonList;
+
+
+            if (ESeries == 0) ser = E12; else ser = E24;
+
             factor = Vout / Uref;
             for (int i = 0; i < 3; i++)
             {
-                foreach (double valR1 in E24) //R1 //todo: dodać zamianię szeregów wartości
+                foreach (double valR1 in ser) //R1 //todo: dodać zamianię szeregów wartości
                 {
                     double tempR1;
                     tempR1 = valR1;
@@ -73,7 +81,7 @@ namespace converterDC
                     if (i == 2) tempR1 *= 10;
                     for (int j = 0; j < 3; j++)
                     {
-                        foreach (double valR2 in E24)
+                        foreach (double valR2 in ser)
                         {
                             double tempR2;
                             double epsilon;
@@ -91,7 +99,7 @@ namespace converterDC
             // MessageBox.Show(Convert.ToString(epsilonList[minIndexFromEpsilonList]));
             //  MessageBox.Show(Convert.ToString(minIndexFromEpsilonList));
 
-            var firstOption = new Tuple<double, double, double>(0,0,0);
+            var firstOption = new Tuple<double, double, double>(0, 0, 0);
             var secondOption = new Tuple<double, double, double>(0, 0, 0);
             var thirdOption = new Tuple<double, double, double>(0, 0, 0);
             var previous = new Tuple<double, double, double>(0, 0, 0);
@@ -119,7 +127,8 @@ namespace converterDC
                 if (counter >= 3) break;
                 previous = index;
             }
-            return { }; ///dokonczyćreturna
+
+            return new List<Tuple<double, double, double>> { firstOption, secondOption, thirdOption }; ///dokonczyćreturna
         }
 
     }
