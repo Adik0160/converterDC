@@ -28,7 +28,11 @@ namespace converterDC
             this.maxOutputVoltage = 15; //V
             this.minOutputVoltage = 0.81; //V
             this.maxOutputCurrent = 1.5; //A
+<<<<<<< HEAD
             RDivider = new RDivider(0.81, 5, Eseries.e12);
+=======
+            RDivider = new RDivider(0.81, 5, Eseries.e12)
+>>>>>>> bb3a16f96860bc353c8436a0ac4fb6c3193762af
         }
         public converter(int frequency, double maxInputVoltage, double minInputVoltage, double maxOutputVoltage, double minOutputVoltage, double maxOutputCurrent)
         {
