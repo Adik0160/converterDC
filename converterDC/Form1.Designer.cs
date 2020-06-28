@@ -191,6 +191,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(27, 145);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(98, 17);
@@ -207,7 +208,6 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(116, 17);
             this.radioButton2.TabIndex = 17;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "radioSecondOption";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.Visible = false;
@@ -219,7 +219,6 @@
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(103, 17);
             this.radioButton3.TabIndex = 18;
-            this.radioButton3.TabStop = true;
             this.radioButton3.Text = "radioThirdOption";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.Visible = false;

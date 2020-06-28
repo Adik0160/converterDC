@@ -18,7 +18,7 @@ namespace converterDC
         double maxOutputCurrent, outputCurrent;
         double L1, R1, R2, C1, C2;
         Eseries Eseries;
-        private RDivider RDivider = new RDivider(0.81, 15, Eseries.e12);
+        private RDivider RDivider;
         List<Tuple<double, double, double>> dbOfEpsilons = new List<Tuple<double, double, double>> { };
         public converter() //domyślnie ap3211
         {
@@ -28,6 +28,7 @@ namespace converterDC
             this.maxOutputVoltage = 15; //V
             this.minOutputVoltage = 0.81; //V
             this.maxOutputCurrent = 1.5; //A
+            RDivider = new RDivider(0.81, 5, Eseries.e12);
         }
         public converter(int frequency, double maxInputVoltage, double minInputVoltage, double maxOutputVoltage, double minOutputVoltage, double maxOutputCurrent)
         {
@@ -53,6 +54,7 @@ namespace converterDC
             this.inputVoltage = inputVoltage;
             this.Eseries = ESeries;
             RDivider.count(0.81, this.outputVoltage, this.Eseries);
+
             //dbOfEpsilons = rDivider(0.81, outputVoltage, this.ESeries);// do naprawy
         }
     }
