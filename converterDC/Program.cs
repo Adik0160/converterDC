@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace converterDC
 {
+    enum Eseries
+    {
+        e6,
+        e12,
+        e24
+    }
     static class Program
     {
         /// <summary>

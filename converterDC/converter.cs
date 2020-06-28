@@ -17,7 +17,8 @@ namespace converterDC
         double maxOutputVoltage, minOutputVoltage, outputVoltage;
         double maxOutputCurrent, outputCurrent;
         double L1, R1, R2, C1, C2;
-        int ESeries;
+        Eseries Eseries;
+        private RDivider RDivider = new RDivider(0.81, 15, Eseries.e12);
         List<Tuple<double, double, double>> dbOfEpsilons = new List<Tuple<double, double, double>> { };
         public converter() //domyślnie ap3211
         {
@@ -36,7 +37,6 @@ namespace converterDC
             this.maxOutputVoltage = maxOutputVoltage; //V
             this.minOutputVoltage = minOutputVoltage; //V
             this.maxOutputCurrent = maxOutputCurrent; //A
-            
         }
 
         ~converter()
@@ -44,12 +44,15 @@ namespace converterDC
             MessageBox.Show("Destruktor");
         }
 
-        public void calc(double outputCurrent, double outputVoltage, double inputVoltage, int ESeries)
+     
+
+        public void calc(double outputCurrent, double outputVoltage, double inputVoltage, Eseries ESeries)
         {
             this.outputCurrent = outputCurrent;
             this.outputVoltage = outputVoltage;
             this.inputVoltage = inputVoltage;
-            this.ESeries = ESeries;
+            this.Eseries = ESeries;
+            RDivider.count(0.81, this.outputVoltage, this.Eseries);
             //dbOfEpsilons = rDivider(0.81, outputVoltage, this.ESeries);// do naprawy
         }
     }

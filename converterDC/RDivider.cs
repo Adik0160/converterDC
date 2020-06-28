@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace converterDC
 {
-    enum Eseries
-    {
-        e6,
-        e12,
-        e24
-    }
+
     class RDivider
     {
         private Eseries Eseries;
@@ -25,13 +20,13 @@ namespace converterDC
         private (double r1, double r2, double realUout) opt2 = (-1, -1, -1);
         private (double r1, double r2, double realUout) opt3 = (-1, -1, -1);
 
-        RDivider()
+        public RDivider()
         {
             this.uRef = 0.81;
             this.uOut = 3.3;
             this.Eseries = Eseries.e12;
         }
-        RDivider(double uRef, double uOut, Eseries Eseries)
+        public RDivider(double uRef, double uOut, Eseries Eseries)
         {
             this.uRef = uRef;
             this.uOut = uOut;
@@ -131,7 +126,7 @@ namespace converterDC
 
         public (double realUout, double r1, double r2) getOpt3
         {
-            get { return opt2; }
+            get { return opt3; }
         }
     }
 }
