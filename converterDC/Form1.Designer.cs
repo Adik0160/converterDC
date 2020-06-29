@@ -201,6 +201,7 @@
             this.radioFirstOption.Text = "radioFirstOption";
             this.radioFirstOption.UseVisualStyleBackColor = true;
             this.radioFirstOption.Visible = false;
+            this.radioFirstOption.CheckedChanged += new System.EventHandler(this.radioFirstOption_CheckedChanged);
             // 
             // radioSecondOption
             // 
@@ -212,6 +213,7 @@
             this.radioSecondOption.Text = "radioSecondOption";
             this.radioSecondOption.UseVisualStyleBackColor = true;
             this.radioSecondOption.Visible = false;
+            this.radioSecondOption.CheckedChanged += new System.EventHandler(this.radioSecondOption_CheckedChanged);
             // 
             // radioThirdOption
             // 
@@ -223,6 +225,7 @@
             this.radioThirdOption.Text = "radioThirdOption";
             this.radioThirdOption.UseVisualStyleBackColor = true;
             this.radioThirdOption.Visible = false;
+            this.radioThirdOption.CheckedChanged += new System.EventHandler(this.radioThirdOption_CheckedChanged);
             // 
             // Form1
             // 

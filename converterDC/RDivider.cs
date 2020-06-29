@@ -98,7 +98,7 @@ namespace converterDC
             tempOpt1 = dbOfEpsilons[0];
             foreach ((double epsilon, double r1, double r2) index in dbOfEpsilons)
             {
-                if (previousOpt.epsilon != index.epsilon)
+                if (previousOpt.epsilon != index.epsilon) 
                 {
                     counter++; //todo naprawićto ścierwo essa
                     switch (counter)

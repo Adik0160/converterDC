@@ -18,9 +18,26 @@ namespace converterDC
             InitializeComponent();
         }
 
-        private void changeValues()
+        private void changeValues(int chose)
         {
-
+            switch(chose)
+            {
+                case 0:
+                    labelR1.Text = Convert.ToString(AP3211.RDivider.getOpt1.r1);
+                    labelR2.Text = Convert.ToString(AP3211.RDivider.getOpt1.r2);
+                    labelUout.Text = Convert.ToString(AP3211.RDivider.getOpt1.realUout);
+                break;
+                case 1:
+                    labelR1.Text = Convert.ToString(AP3211.RDivider.getOpt2.r1);
+                    labelR2.Text = Convert.ToString(AP3211.RDivider.getOpt2.r2);
+                    labelUout.Text = Convert.ToString(AP3211.RDivider.getOpt2.realUout);
+                break;
+                case 2:
+                    labelR1.Text = Convert.ToString(AP3211.RDivider.getOpt3.r1);
+                    labelR2.Text = Convert.ToString(AP3211.RDivider.getOpt3.r2);
+                    labelUout.Text = Convert.ToString(AP3211.RDivider.getOpt3.realUout);
+                break;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,6 +93,21 @@ namespace converterDC
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioFirstOption_CheckedChanged(object sender, EventArgs e)
+        {
+            changeValues(0);
+        }
+
+        private void radioSecondOption_CheckedChanged(object sender, EventArgs e)
+        {
+            changeValues(1);
+        }
+
+        private void radioThirdOption_CheckedChanged(object sender, EventArgs e)
+        {
+            changeValues(2);
         }
     }
 }
