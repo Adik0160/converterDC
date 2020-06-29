@@ -15,7 +15,7 @@ namespace converterDC
         int frequency;
         public double maxInputVoltage, minInputVoltage, inputVoltage;
         public double maxOutputVoltage, minOutputVoltage, outputVoltage, realOutputVoltage;
-        double maxOutputCurrent, outputCurrent;
+        public double maxOutputCurrent, outputCurrent;
         public double L1, R1, R2, C1, C2;
         public Eseries Eseries;
         public RDivider RDivider;

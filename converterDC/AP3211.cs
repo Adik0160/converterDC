@@ -9,9 +9,14 @@ namespace converterDC
     class AP3211:converter
     {
 
-        public AP3211()
+        public AP3211():base()
         {
 
+        }
+
+        public void inductorCalc()
+        {
+            base.L1 = base.RDivider.
         }
     }
 }

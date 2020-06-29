@@ -76,6 +76,7 @@ namespace converterDC
         {
             AP3211.outputVoltage = Convert.ToDouble(textUout.Text);
             AP3211.inputVoltage = Convert.ToDouble(textUin.Text);
+            AP3211.outputCurrent = Convert.ToDouble(textIout.Text);
             AP3211.Eseries = (Eseries)comboESeries.SelectedIndex;
             AP3211.calc();
             labelUin.Text = textUout.Text;
