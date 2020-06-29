@@ -1,9 +1,11 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace converterDC
 {
@@ -16,14 +18,14 @@ namespace converterDC
         private List<double> e24 = new List<double> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
         double uRef;
         double uOut;
-        private (double r1, double r2, double realUout) opt1 = (-1, -1, -1); // to też może naprawić
-        private (double r1, double r2, double realUout) opt2 = (-1, -1, -1);
-        private (double r1, double r2, double realUout) opt3 = (-1, -1, -1);
+        private (double epsilon, double r1, double r2, double realUout) opt1 = (-1, -1, -1, -1); // to też może naprawić
+        private (double epsilon, double r1, double r2, double realUout) opt2 = (-1, -1, -1, -1);
+        private (double epsilon, double r1, double r2, double realUout) opt3 = (-1, -1, -1, -1);
 
         public RDivider()
         {
             this.uRef = 0.81;
-            this.uOut = 3.3;
+            this.uOut = 5;
             this.Eseries = Eseries.e12;
         }
         public RDivider(double uRef, double uOut, Eseries Eseries)
@@ -38,7 +40,10 @@ namespace converterDC
             this.uRef = uRef;
             this.uOut = uOut;
             this.Eseries = Eseries;
-            var dbOfEpsilons = new List<(double realUout, double r1, double r2)> { };
+            (double epsilon, double r1, double r2) tempOpt1 = (-1, -1, -1);
+            (double epsilon, double r1, double r2) tempOpt2 = (-1, -1, -1);
+            (double epsilon, double r1, double r2) tempOpt3 = (-1, -1, -1);
+            var dbOfEpsilons = new List<(double epsilon, double r1, double r2)> { };
             List<double> chosenSeries = new List<double> { };
             double factor;
 
@@ -88,24 +93,24 @@ namespace converterDC
             //var firstOption = new Tuple<double, double, double>(0, 0, 0);
             // var secondOption = new Tuple<double, double, double>(0, 0, 0);
             // var thirdOption = new Tuple<double, double, double>(0, 0, 0);
-            (double r1, double r2, double realUout) previousOpt = (0, 0, 0);
+            (double r1, double r2, double epsilon) previousOpt = (0, 0, 0);
             int counter = 0;
-            opt1 = dbOfEpsilons[0];
-            foreach ((double realUout, double r1, double r2) index in dbOfEpsilons)
+            tempOpt1 = dbOfEpsilons[0];
+            foreach ((double epsilon, double r1, double r2) index in dbOfEpsilons)
             {
-                if (previousOpt.realUout != index.realUout)
+                if (previousOpt.epsilon != index.epsilon)
                 {
                     counter++; //todo naprawićto ścierwo essa
                     switch (counter)
                     {
                         case 1:
-                            opt1 = index;
+                            tempOpt1 = index;
                             break;
                         case 2:
-                            opt2 = index;
+                            tempOpt2 = index;
                             break;
                         case 3:
-                            opt3 = index;
+                            tempOpt3 = index;
                             break;
                     }
                 }
@@ -113,18 +118,32 @@ namespace converterDC
                 if (counter >= 3) break;
                 previousOpt = index;
             }
+            opt1 = tupleConvertAndVoltage(tempOpt1);
+            opt2 = tupleConvertAndVoltage(tempOpt2);
+            opt3 = tupleConvertAndVoltage(tempOpt3);
         }
-        public (double realUout, double r1, double r2) getOpt1
+
+        private (double epsilon, double r1, double r2, double realUout) tupleConvertAndVoltage((double epsilon, double r1, double r2) input)
+        {
+            (double epsilon, double r1, double r2, double realUout) tempReturn;
+            tempReturn.epsilon = input.epsilon;
+            tempReturn.r1 = input.r1;
+            tempReturn.r2 = input.r2;
+            tempReturn.realUout = this.uRef * ((input.r1 + input.r2) / input.r2);
+            return tempReturn;
+        }
+
+        public (double epsilon, double r1, double r2, double realUout) getOpt1
         {
             get { return opt1; }
         }
 
-        public (double realUout, double r1, double r2) getOpt2
+        public (double epsilon, double r1, double r2, double realUout) getOpt2
         {
             get { return opt2; }
         }
 
-        public (double realUout, double r1, double r2) getOpt3
+        public (double epsilon, double r1, double r2, double realUout) getOpt3
         {
             get { return opt3; }
         }

@@ -12,15 +12,21 @@ namespace converterDC
 {
     public partial class Form1 : Form
     {
+        AP3211 AP3211;
         public Form1()
         {
             InitializeComponent();
         }
 
+        private void changeValues()
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             comboESeries.SelectedIndex = 1; //wartości domyślne tablicy szeregu
-
+            AP3211 = new AP3211();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,6 +51,29 @@ namespace converterDC
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calculate_Click(object sender, EventArgs e)
+        {
+            AP3211.outputVoltage = Convert.ToDouble(textUout.Text);
+            AP3211.inputVoltage = Convert.ToDouble(textUin.Text);
+            AP3211.Eseries = (Eseries)comboESeries.SelectedIndex;
+            AP3211.calc();
+            labelUin.Text = textUout.Text;
+            labelR1.Text = Convert.ToString(AP3211.R1);
+            labelR2.Text = Convert.ToString(AP3211.R2);
+            labelUout.Text = Convert.ToString(AP3211.realOutputVoltage);
+            radioFirstOption.Text = "Uout = " + Convert.ToString(AP3211.RDivider.getOpt1.realUout) + " V";
+            radioSecondOption.Text = "Uout = " + Convert.ToString(AP3211.RDivider.getOpt2.realUout) + " V";
+            radioThirdOption.Text = "Uout = " + Convert.ToString(AP3211.RDivider.getOpt3.realUout) + " V";
+            radioFirstOption.Visible = true;
+            radioSecondOption.Visible = true;
+            radioThirdOption.Visible = true;
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
         }

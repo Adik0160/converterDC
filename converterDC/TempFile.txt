@@ -1,0 +1,17 @@
+﻿System.Windows.Forms.RadioButton
+
+            this.frequency = frequency; //Hz
+            this.maxInputVoltage = maxInputVoltage; //V
+            this.minInputVoltage = minInputVoltage; //V
+            this.maxOutputVoltage = maxOutputVoltage; //V
+            this.minOutputVoltage = minOutputVoltage; //V
+            this.maxOutputCurrent = maxOutputCurrent; //A
+
+
+
+                        this.frequency = 1400000; //Hz
+            this.maxInputVoltage = 18; //V
+            this.minInputVoltage = 4.5; //V
+            this.maxOutputVoltage = 15; //V
+            this.minOutputVoltage = 0.81; //V
+            this.maxOutputCurrent = 1.5; //A

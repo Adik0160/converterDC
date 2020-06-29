@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
+            this.calculate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textUin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,22 +43,22 @@
             this.labelL1 = new System.Windows.Forms.Label();
             this.labelR1 = new System.Windows.Forms.Label();
             this.labelR2 = new System.Windows.Forms.Label();
-            this.labelOut = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.labelUout = new System.Windows.Forms.Label();
+            this.radioFirstOption = new System.Windows.Forms.RadioButton();
+            this.radioSecondOption = new System.Windows.Forms.RadioButton();
+            this.radioThirdOption = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // calculate
             // 
-            this.button1.Location = new System.Drawing.Point(15, 116);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Oblicz wartości";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.calculate.Location = new System.Drawing.Point(15, 116);
+            this.calculate.Name = "calculate";
+            this.calculate.Size = new System.Drawing.Size(148, 23);
+            this.calculate.TabIndex = 0;
+            this.calculate.Text = "Oblicz wartości";
+            this.calculate.UseVisualStyleBackColor = true;
+            this.calculate.Click += new System.EventHandler(this.calculate_Click);
             // 
             // label1
             // 
@@ -115,6 +115,7 @@
             this.comboESeries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboESeries.FormattingEnabled = true;
             this.comboESeries.Items.AddRange(new object[] {
+            "E6",
             "E12",
             "E24"});
             this.comboESeries.Location = new System.Drawing.Point(118, 89);
@@ -141,7 +142,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // labelUin
             // 
@@ -179,59 +180,59 @@
             this.labelR2.Size = new System.Drawing.Size(0, 16);
             this.labelR2.TabIndex = 13;
             // 
-            // labelOut
+            // labelUout
             // 
-            this.labelOut.AutoSize = true;
-            this.labelOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelOut.Location = new System.Drawing.Point(745, 123);
-            this.labelOut.Name = "labelOut";
-            this.labelOut.Size = new System.Drawing.Size(0, 16);
-            this.labelOut.TabIndex = 14;
+            this.labelUout.AutoSize = true;
+            this.labelUout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelUout.Location = new System.Drawing.Point(745, 123);
+            this.labelUout.Name = "labelUout";
+            this.labelUout.Size = new System.Drawing.Size(0, 16);
+            this.labelUout.TabIndex = 14;
             // 
-            // radioButton1
+            // radioFirstOption
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(27, 145);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(98, 17);
-            this.radioButton1.TabIndex = 16;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioFirstOption";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.Visible = false;
+            this.radioFirstOption.AutoSize = true;
+            this.radioFirstOption.Checked = true;
+            this.radioFirstOption.Location = new System.Drawing.Point(27, 145);
+            this.radioFirstOption.Name = "radioFirstOption";
+            this.radioFirstOption.Size = new System.Drawing.Size(98, 17);
+            this.radioFirstOption.TabIndex = 16;
+            this.radioFirstOption.TabStop = true;
+            this.radioFirstOption.Text = "radioFirstOption";
+            this.radioFirstOption.UseVisualStyleBackColor = true;
+            this.radioFirstOption.Visible = false;
             // 
-            // radioButton2
+            // radioSecondOption
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(27, 168);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(116, 17);
-            this.radioButton2.TabIndex = 17;
-            this.radioButton2.Text = "radioSecondOption";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.Visible = false;
+            this.radioSecondOption.AutoSize = true;
+            this.radioSecondOption.Location = new System.Drawing.Point(27, 168);
+            this.radioSecondOption.Name = "radioSecondOption";
+            this.radioSecondOption.Size = new System.Drawing.Size(116, 17);
+            this.radioSecondOption.TabIndex = 17;
+            this.radioSecondOption.Text = "radioSecondOption";
+            this.radioSecondOption.UseVisualStyleBackColor = true;
+            this.radioSecondOption.Visible = false;
             // 
-            // radioButton3
+            // radioThirdOption
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(27, 191);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(103, 17);
-            this.radioButton3.TabIndex = 18;
-            this.radioButton3.Text = "radioThirdOption";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.Visible = false;
+            this.radioThirdOption.AutoSize = true;
+            this.radioThirdOption.Location = new System.Drawing.Point(27, 191);
+            this.radioThirdOption.Name = "radioThirdOption";
+            this.radioThirdOption.Size = new System.Drawing.Size(103, 17);
+            this.radioThirdOption.TabIndex = 18;
+            this.radioThirdOption.Text = "radioThirdOption";
+            this.radioThirdOption.UseVisualStyleBackColor = true;
+            this.radioThirdOption.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 554);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.labelOut);
+            this.Controls.Add(this.radioThirdOption);
+            this.Controls.Add(this.radioSecondOption);
+            this.Controls.Add(this.radioFirstOption);
+            this.Controls.Add(this.labelUout);
             this.Controls.Add(this.labelR2);
             this.Controls.Add(this.labelR1);
             this.Controls.Add(this.labelL1);
@@ -245,7 +246,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textUin);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.calculate);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -257,7 +258,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button calculate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textUin;
         private System.Windows.Forms.Label label2;
@@ -270,11 +271,11 @@
         private System.Windows.Forms.Label labelL1;
         private System.Windows.Forms.Label labelR1;
         private System.Windows.Forms.Label labelR2;
-        private System.Windows.Forms.Label labelOut;
+        private System.Windows.Forms.Label labelUout;
         private System.Windows.Forms.ComboBox comboESeries;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioFirstOption;
+        private System.Windows.Forms.RadioButton radioSecondOption;
+        private System.Windows.Forms.RadioButton radioThirdOption;
     }
 }
 
