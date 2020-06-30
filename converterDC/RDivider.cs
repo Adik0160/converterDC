@@ -16,8 +16,8 @@ namespace converterDC
         private List<double> e6 = new List<double> { 10, 15, 22, 33, 47, 68 };
         private List<double> e12 = new List<double> { 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 };
         private List<double> e24 = new List<double> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
-        double uRef;
-        double uOut;
+        private double uRef;
+        private double uOut;
         private (double epsilon, double r1, double r2, double realUout) opt1 = (-1, -1, -1, -1); // to też może naprawić
         private (double epsilon, double r1, double r2, double realUout) opt2 = (-1, -1, -1, -1);
         private (double epsilon, double r1, double r2, double realUout) opt3 = (-1, -1, -1, -1);
@@ -129,7 +129,7 @@ namespace converterDC
             tempReturn.epsilon = input.epsilon;
             tempReturn.r1 = input.r1;
             tempReturn.r2 = input.r2;
-            tempReturn.realUout = this.uRef * ((input.r1 + input.r2) / input.r2);
+            tempReturn.realUout = Math.Round(this.uRef * ((input.r1 + input.r2) / input.r2), 3);
             return tempReturn;
         }
 

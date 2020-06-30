@@ -184,7 +184,7 @@
             // 
             this.labelUout.AutoSize = true;
             this.labelUout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelUout.Location = new System.Drawing.Point(745, 123);
+            this.labelUout.Location = new System.Drawing.Point(705, 102);
             this.labelUout.Name = "labelUout";
             this.labelUout.Size = new System.Drawing.Size(0, 16);
             this.labelUout.TabIndex = 14;

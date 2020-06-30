@@ -10,28 +10,25 @@ using System.Windows.Forms;
 namespace converterDC
 {
 
-    class converter
+    class converter //TODO: pohermetyzować śmieci
     {
-        int frequency;
-        public double maxInputVoltage, minInputVoltage, inputVoltage;
-        public double maxOutputVoltage, minOutputVoltage, outputVoltage, realOutputVoltage;
-        public double maxOutputCurrent, outputCurrent;
-        public double L1, R1, R2, C1, C2;
+        protected int frequency;
+        public double inputVoltage;
+        public double outputVoltage, realOutputVoltage;
+        public double outputCurrent;
+        public double L1, R1, R2;
         public Eseries Eseries;
-        public RDivider RDivider;
+        public string L1_str;
         List<Tuple<double, double, double>> dbOfEpsilons = new List<Tuple<double, double, double>> { };
         public converter() 
         {
-            RDivider = new RDivider(0.81, 5, Eseries.e12);
         }
 
-        public void calc()
+        public void rdividerInput((double epsilon, double r1, double r2, double realUout) data)
         {
-            RDivider.count(0.81, this.outputVoltage, this.Eseries);
-            R1 = RDivider.getOpt1.r1;
-            R2 = RDivider.getOpt1.r2;
-            realOutputVoltage = RDivider.getOpt1.realUout;
+            this.R1 = data.r1;
+            this.R2 = data.r2;
+            this.realOutputVoltage = data.realUout;
         }
-
     }
 }
