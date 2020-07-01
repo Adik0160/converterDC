@@ -18,7 +18,7 @@ namespace converterDC
         private List<double> e24 = new List<double> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
         private double uRef;
         private double uOut;
-        private (double epsilon, double r1, double r2, double realUout) opt1 = (-1, -1, -1, -1); // to też może naprawić
+        private (double epsilon, double r1, double r2, double realUout) opt1 = (-1, -1, -1, -1);
         private (double epsilon, double r1, double r2, double realUout) opt2 = (-1, -1, -1, -1);
         private (double epsilon, double r1, double r2, double realUout) opt3 = (-1, -1, -1, -1);
 
@@ -79,20 +79,12 @@ namespace converterDC
                             if (j == 0) tempR2 /= 10;
                             if (j == 2) tempR2 *= 10;
                             epsilon = factor - (tempR1 + tempR2) / tempR2;
-                            //Math.Abs(epsilon), tempR1, tempR2
                             dbOfEpsilons.Add((Math.Abs(epsilon), tempR1, tempR2));
                         }
                     }
                 }
             }
-            dbOfEpsilons.Sort(); //sprawdzićczy sie nie psuje porównywarka (jajk sortować po elemencie - na przykład środkowym)
-            // minIndexFromEpsilonList = epsilonList.IndexOf(epsilonList.Min());
-            // MessageBox.Show(Convert.ToString(epsilonList[minIndexFromEpsilonList]));
-            //  MessageBox.Show(Convert.ToString(minIndexFromEpsilonList));
-
-            //var firstOption = new Tuple<double, double, double>(0, 0, 0);
-            // var secondOption = new Tuple<double, double, double>(0, 0, 0);
-            // var thirdOption = new Tuple<double, double, double>(0, 0, 0);
+            dbOfEpsilons.Sort(); //TODO: sprawdzićczy sie nie psuje porównywarka (jajk sortować po elemencie - na przykład środkowym)
             (double r1, double r2, double epsilon) previousOpt = (0, 0, 0);
             int counter = 0;
             tempOpt1 = dbOfEpsilons[0];
@@ -100,7 +92,7 @@ namespace converterDC
             {
                 if (previousOpt.epsilon != index.epsilon) 
                 {
-                    counter++; //todo naprawićto ścierwo essa
+                    counter++; 
                     switch (counter)
                     {
                         case 1:

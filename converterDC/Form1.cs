@@ -26,20 +26,20 @@ namespace converterDC
                 case 0:
                     labelR1.Text = Convert.ToString(AP3211_1.R1) + " kΩ";
                     labelR2.Text = Convert.ToString(AP3211_1.R2) + " kΩ";
-                    labelUout.Text = Convert.ToString(AP3211_1.realOutputVoltage) + " V";
-                    labelL1.Text = AP3211_1.L1_str + "H";
+                    labelUout.Text = Convert.ToString(AP3211_1.getRealOutputVoltage) + " V";
+                    labelL1.Text = AP3211_1.getL1_str + "H";
                     break;
                 case 1:
                     labelR1.Text = Convert.ToString(AP3211_2.R1) + " kΩ";
                     labelR2.Text = Convert.ToString(AP3211_2.R2) + " kΩ";
-                    labelUout.Text = Convert.ToString(AP3211_2.realOutputVoltage) + " V";
-                    labelL1.Text = AP3211_2.L1_str + "H";
+                    labelUout.Text = Convert.ToString(AP3211_2.getRealOutputVoltage) + " V";
+                    labelL1.Text = AP3211_2.getL1_str + "H";
                     break;
                 case 2:
                     labelR1.Text = Convert.ToString(AP3211_3.R1) + " kΩ";
                     labelR2.Text = Convert.ToString(AP3211_3.R2) + " kΩ";
-                    labelUout.Text = Convert.ToString(AP3211_3.realOutputVoltage) + " V";
-                    labelL1.Text = AP3211_3.L1_str + "H";
+                    labelUout.Text = Convert.ToString(AP3211_3.getRealOutputVoltage) + " V";
+                    labelL1.Text = AP3211_3.getL1_str + "H";
                     break;
             }
         }
@@ -86,17 +86,17 @@ namespace converterDC
             double outputCurrent = Convert.ToDouble(textIout.Text);
             Eseries Eseries = (Eseries)comboESeries.SelectedIndex;
 
-            AP3211_1.outputVoltage = outputVoltage;
-            AP3211_2.outputVoltage = outputVoltage;
-            AP3211_3.outputVoltage = outputVoltage;
+            AP3211_1.setOutputVoltage = outputVoltage;
+            AP3211_2.setOutputVoltage = outputVoltage;
+            AP3211_3.setOutputVoltage = outputVoltage;
 
-            AP3211_1.inputVoltage = inputVoltage;
-            AP3211_2.inputVoltage = inputVoltage;
-            AP3211_3.inputVoltage = inputVoltage;
+            AP3211_1.setInputVoltage = inputVoltage;
+            AP3211_2.setInputVoltage = inputVoltage;
+            AP3211_3.setInputVoltage = inputVoltage;
 
-            AP3211_1.outputCurrent = outputCurrent;
-            AP3211_2.outputCurrent = outputCurrent;
-            AP3211_3.outputCurrent = outputCurrent;
+            AP3211_1.setOutputCurrent = outputCurrent;
+            AP3211_2.setOutputCurrent = outputCurrent;
+            AP3211_3.setOutputCurrent = outputCurrent;
 
             AP3211_1.Eseries = Eseries;
             AP3211_2.Eseries = Eseries;
@@ -112,16 +112,12 @@ namespace converterDC
             AP3211_3.calc();
 
             labelUin.Text = textUin.Text + " V";
-            //labelR1.Text = Convert.ToString(AP3211_1.R1) + " kΩ";
-            //labelR2.Text = Convert.ToString(AP3211_1.R2) + " kΩ";
-            //labelUout.Text = Convert.ToString(AP3211_1.realOutputVoltage) + " V";
-            //labelL1.Text = AP3211_1.L1_str + "H";
 
             changeValues(0);
 
-            radioFirstOption.Text = "Uout = " + Convert.ToString(AP3211_1.realOutputVoltage) + " V";
-            radioSecondOption.Text = "Uout = " + Convert.ToString(AP3211_2.realOutputVoltage) + " V";
-            radioThirdOption.Text = "Uout = " + Convert.ToString(AP3211_3.realOutputVoltage) + " V";
+            radioFirstOption.Text = "Uout = " + Convert.ToString(AP3211_1.getRealOutputVoltage) + " V";
+            radioSecondOption.Text = "Uout = " + Convert.ToString(AP3211_2.getRealOutputVoltage) + " V";
+            radioThirdOption.Text = "Uout = " + Convert.ToString(AP3211_3.getRealOutputVoltage) + " V";
             radioFirstOption.Visible = true;
             radioSecondOption.Visible = true;
             radioThirdOption.Visible = true;
