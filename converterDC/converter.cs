@@ -23,6 +23,14 @@ namespace converterDC
         public converter()
         {
         }
+
+        public converter(double inputVoltage, double outputVoltage, double outputCurrent)
+        {
+            this.inputVoltage = inputVoltage;
+            this.outputVoltage = outputVoltage;
+            this.outputCurrent = outputCurrent;
+        }
+
         public double setInputVoltage
         {
             set => inputVoltage = value;

@@ -28,12 +28,10 @@ Ocena projektu:
 
 2.0 - w przypadku stwierdzenia plagiatu, niesamodzielności wykonania projektu lub nie oddania pracy w 1 terminie.
 
-**1 termin 26.06.2020**
+**1 termin 30.06.2020**
 
 **2 termin (poprawkowy) 09.09.2020**
 
 Wszystkie pliki projektowe wraz ze sprawozdaniem należy spakować i wysłać mailem (w tytule maila wpisać proszę tryb studiów (St lub Nst) oraz numer grupy laboratoryjnej (Np. L1)).
-
-Damian Burzyński
 
 Ostatnia modyfikacja: sobota, 23 maj 2020, 20:36

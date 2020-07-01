@@ -76,6 +76,7 @@
             this.textUin.Name = "textUin";
             this.textUin.Size = new System.Drawing.Size(100, 20);
             this.textUin.TabIndex = 2;
+            this.textUin.Text = "14,4";
             // 
             // label2
             // 
@@ -92,6 +93,7 @@
             this.textUout.Name = "textUout";
             this.textUout.Size = new System.Drawing.Size(100, 20);
             this.textUout.TabIndex = 4;
+            this.textUout.Text = "3,3";
             // 
             // label3
             // 
@@ -109,6 +111,7 @@
             this.textIout.Name = "textIout";
             this.textIout.Size = new System.Drawing.Size(100, 20);
             this.textIout.TabIndex = 6;
+            this.textIout.Text = "0,7";
             // 
             // comboESeries
             // 
@@ -166,7 +169,7 @@
             // 
             this.labelR1.AutoSize = true;
             this.labelR1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelR1.Location = new System.Drawing.Point(567, 176);
+            this.labelR1.Location = new System.Drawing.Point(559, 176);
             this.labelR1.Name = "labelR1";
             this.labelR1.Size = new System.Drawing.Size(0, 16);
             this.labelR1.TabIndex = 12;
@@ -175,7 +178,7 @@
             // 
             this.labelR2.AutoSize = true;
             this.labelR2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelR2.Location = new System.Drawing.Point(567, 263);
+            this.labelR2.Location = new System.Drawing.Point(559, 263);
             this.labelR2.Name = "labelR2";
             this.labelR2.Size = new System.Drawing.Size(0, 16);
             this.labelR2.TabIndex = 13;
@@ -231,7 +234,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 554);
+            this.ClientSize = new System.Drawing.Size(821, 336);
             this.Controls.Add(this.radioThirdOption);
             this.Controls.Add(this.radioSecondOption);
             this.Controls.Add(this.radioFirstOption);
@@ -250,8 +253,9 @@
             this.Controls.Add(this.textUin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.calculate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Przetwornica AP3211";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
