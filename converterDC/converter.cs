@@ -14,7 +14,8 @@ namespace converterDC
     {
         protected int frequency;
         protected double inputVoltage;
-        protected double outputVoltage, realOutputVoltage;
+        protected double outputVoltage;
+        protected double realOutputVoltage;
         protected double outputCurrent;
         public double L1, R1, R2;
         public Eseries Eseries;

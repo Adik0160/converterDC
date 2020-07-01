@@ -85,12 +85,12 @@ namespace converterDC
                 }
             }
             dbOfEpsilons.Sort(); //TODO: sprawdzićczy sie nie psuje porównywarka (jajk sortować po elemencie - na przykład środkowym)
-            (double r1, double r2, double epsilon) previousOpt = (0, 0, 0);
+            (double epsilon, double r1, double r2) previousOpt = (0, 0, 0);
             int counter = 0;
             tempOpt1 = dbOfEpsilons[0];
             foreach ((double epsilon, double r1, double r2) index in dbOfEpsilons)
             {
-                if (previousOpt.epsilon != index.epsilon) 
+                if (Math.Round(previousOpt.epsilon, 4) != Math.Round(index.epsilon, 4)) 
                 {
                     counter++; 
                     switch (counter)
